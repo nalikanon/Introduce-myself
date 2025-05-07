@@ -1,9 +1,38 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Briefcase, CheckCircle } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2 } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  useEffect(() => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elementTop = rect.top + window.scrollY;
+      
+      if (scrollPosition > elementTop - window.innerHeight * 0.8) {
+        el.classList.add('show');
+      } else {
+        el.classList.remove('show');
+      }
+    });
+  }, [scrollPosition]);
+  
   return (
     <main className="min-h-screen gradient-bg text-white">
       <div className="container mx-auto px-4 py-16">
@@ -15,7 +44,7 @@ export default function Home() {
             </h1>
             <p className="text-2xl text-purple-200 mb-8">Computer Engineering</p>
             <div className="flex justify-center gap-4">
-              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
+              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800" onClick={() => window.open("https://github.com/nalikanon", "_blank")}>
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </Button>
@@ -31,8 +60,11 @@ export default function Home() {
           </div>
 
           {/* About Section */}
-          <Card className="p-8 card-blur mb-8">
-            <h2 className="text-3xl font-bold mb-4 text-purple-200">About Me</h2>
+          <Card className="p-8 card-blur mb-8 animate-on-scroll">
+            <div className="flex items-center mb-4">
+              <User className="w-6 h-6 text-purple-400 mr-3" />
+              <h2 className="text-3xl font-bold text-purple-200">About Me</h2>
+            </div>
             <p className="text-purple-100 leading-relaxed">
               I'm a Computer Engineering student at Mae Fah Luang University with a strong interest in web development and AI. 
               I enjoy building real projects and recently created a ChatAI system for MFU using Claude 3.5 from AWS.
@@ -41,7 +73,7 @@ export default function Home() {
           </Card>
 
           {/* Experience Section */}
-          <Card className="p-8 card-blur mb-8">
+          <Card className="p-8 card-blur mb-8 animate-on-scroll">
             <div className="flex items-center mb-4">
               <Briefcase className="w-6 h-6 text-purple-400 mr-3" />
               <h2 className="text-3xl font-bold text-purple-200">Experience</h2>
@@ -101,8 +133,11 @@ export default function Home() {
           </Card>
 
           {/* Skills Section */}
-          <Card className="p-8 card-blur mb-8">
-            <h2 className="text-3xl font-bold mb-4 text-purple-200">Skills</h2>
+          <Card className="p-8 card-blur mb-8 animate-on-scroll">
+            <div className="flex items-center mb-4">
+              <Code2 className="w-6 h-6 text-purple-400 mr-3" />
+              <h2 className="text-3xl font-bold text-purple-200">Skills</h2>
+            </div>
             
             {/* Frontend Skills */}
             <div className="mb-6">
@@ -139,6 +174,10 @@ export default function Home() {
             </div>
           </Card>
 
+          {/* Projects Section - ถ้ามี */}
+          <Card className="p-8 card-blur animate-on-scroll">
+            {/* ... existing projects content ... */}
+          </Card>
         </div>
       </div>
     </main>

@@ -106,4 +106,15 @@
       box-shadow: 0 0 0 0 rgba(234, 179, 8, 0);
     }
   }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 
