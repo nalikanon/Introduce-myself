@@ -116,6 +116,21 @@
     }
   }
   
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
   .card-blur {
     @apply bg-black/40 backdrop-blur-md border-purple-900/50;
     position: relative;
@@ -175,5 +190,24 @@
 
   .profile-image {
     animation: profile-image-glow 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulse-close {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 7px rgba(168, 85, 247, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+    }
+  }
+  
+  .close-button-pulse {
+    animation: pulse-close 2s infinite;
   }
 } 

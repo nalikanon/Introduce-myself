@@ -2,12 +2,60 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap, X, Download } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showResume, setShowResume] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const resumeRef = useRef<HTMLDivElement>(null);
+  
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (isZoomed) {
+      e.preventDefault();
+      setIsDragging(true);
+      setStartPos({ x: e.clientX, y: e.clientY });
+    }
+  };
+  
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging && isZoomed) {
+      e.preventDefault();
+      
+      // คำนวณระยะทางที่เคลื่อนที่
+      const deltaX = e.clientX - startPos.x;
+      const deltaY = e.clientY - startPos.y;
+      
+      // อัปเดตตำแหน่งเริ่มต้นใหม่สำหรับการเคลื่อนที่ครั้งต่อไป
+      setStartPos({ x: e.clientX, y: e.clientY });
+      
+      // อัปเดตตำแหน่งของรูปภาพ
+      setPosition(prev => {
+        // จำกัดการเคลื่อนที่ให้อยู่ในขอบเขต
+        const maxOffset = 200;
+        const newX = Math.max(Math.min(prev.x + deltaX, maxOffset), -maxOffset);
+        const newY = Math.max(Math.min(prev.y + deltaY, maxOffset), -maxOffset);
+        
+        return { x: newX, y: newY };
+      });
+    }
+  };
+  
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+  
+  const handleZoomClick = () => {
+    if (isZoomed) {
+      setPosition({ x: 0, y: 0 });
+    }
+    setIsZoomed(!isZoomed);
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +80,14 @@ export default function Home() {
       }
     });
   }, [scrollPosition]);
+  
+  useEffect(() => {
+    window.addEventListener('mouseup', handleMouseUp);
+    
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
   
   return (
     <main className="min-h-screen gradient-bg text-white">
@@ -72,14 +128,77 @@ export default function Home() {
                 Mail : apisityambangyang@gmail.com
               </Button>
 
-              <a href="/Resume (1).pdf" download>
-                <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
-                  <Briefcase className="mr-2 h-4 w-4" />
-                  Resume
-                </Button>
-              </a>
+              <Button 
+                variant="outline" 
+                className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6"
+                onClick={() => setShowResume(!showResume)}
+              >
+                <Briefcase className="mr-2 h-4 w-4" />
+                Resume
+              </Button>
             </div>
           </div>
+
+          {/* Resume Popup */}
+          {showResume && (
+            <div className="fixed top-1/2 right-10 transform -translate-y-1/2 z-50" ref={resumeRef}>
+              <div className="relative animate-fadeIn">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute -top-3 -right-3 rounded-full bg-purple-900 hover:bg-purple-800 border border-purple-500 w-6 h-6 flex items-center justify-center z-10" 
+                  onClick={() => setShowResume(false)}
+                >
+                  <X className="h-3 w-3 text-white" />
+                </Button>
+                
+                <div className="bg-white rounded-md shadow-lg overflow-hidden max-h-[85vh] w-[450px] border-2 border-purple-500 relative">
+                  <div 
+                    className={`overflow-hidden w-full h-full relative ${isZoomed ? 'cursor-grab' : 'cursor-zoom-in'} ${isDragging ? 'cursor-grabbing' : ''}`}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                  >
+                    <img 
+                      src="/resume.png" 
+                      alt="Resume"
+                      className="w-full h-auto select-none"
+                      style={isZoomed ? { 
+                        transform: `scale(1.5) translate(${position.x/3}px, ${position.y/3}px)`,
+                        transition: isDragging ? 'none' : 'transform 0.2s ease',
+                        willChange: 'transform'
+                      } : undefined}
+                      onClick={!isZoomed ? handleZoomClick : undefined}
+                      onContextMenu={(e) => e.preventDefault()}
+                      draggable="false"
+                    />
+                    
+                    {isZoomed && (
+                      <Button 
+                        variant="destructive" 
+                        size="sm" 
+                        className="absolute bottom-3 left-1/2 transform -translate-x-1/2 py-1 px-3 text-xs bg-purple-700 hover:bg-purple-600 focus:ring-2 focus:ring-purple-500 border-none"
+                        onClick={() => {
+                          setIsZoomed(false);
+                          setPosition({ x: 0, y: 0 });
+                        }}
+                      >
+                        cancel zooming
+                      </Button>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="bg-purple-900/90 p-2 mt-2 rounded-md shadow-lg flex justify-center">
+                  <a href="/resume.png" download="Resume_ApisitYambangyang.png" className="text-center text-purple-300 text-xs hover:text-white">
+                    <Download className="h-3 w-3 mx-auto mb-1" />
+                    Download Resume
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* About Section */}
           <Card className="p-8 card-blur mb-8 animate-on-scroll">
