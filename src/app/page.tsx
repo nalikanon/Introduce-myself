@@ -123,6 +123,15 @@ export default function Home() {
             </Button>
             </a>
             
+            <a href="https://www.linkedin.com/in/non-apisit-43762b364/"
+               target="_blank"
+               rel="" >
+            <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
+            <Linkedin className="mr-2 h-4 w-4" />
+            LinkedIn
+            </Button>
+            </a>
+            
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
                 <Mail className="mr-2 h-4 w-4" />
                 Mail : apisityambangyang@gmail.com
