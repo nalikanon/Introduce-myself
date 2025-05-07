@@ -47,7 +47,6 @@
   
   .timeline-dot {
     @apply absolute -left-[25px] top-0;
-    animation: pulse 2s infinite;
   }
   
   .timeline-item {
