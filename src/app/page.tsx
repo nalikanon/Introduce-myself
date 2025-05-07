@@ -59,8 +59,8 @@ export default function Home() {
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">Web Application ChatAI For Mae Fah Luang University</h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
                   <li>Developed a ChatAI web application for Mae Fah Luang University using Claude 3.5 Sonnet via AWS.</li>
-                  <li>Integrated with MongoDB, TailwindCSS, TypeScript, and Node.js for a seamless full-stack experience.</li>
                   <li>Front-end, Back-end</li>
+                  <li>JavaScript, TailwindCSS, Node.js, MongoDB</li>
                 </ul>
               </div>
               
@@ -77,7 +77,7 @@ export default function Home() {
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
                   <li>Application for Library room booking</li>
                   <li>Front-end, Back-end</li>
-                  <li>Flutter, MySQL</li>
+                  <li>Dart, Flutter, JavaScript, Bootstrap, NodeJS Express, MySQL</li>
                 </ul>
               </div>
               
@@ -94,7 +94,7 @@ export default function Home() {
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
                   <li>Web application for hotel room booking</li>
                   <li>Front-end, Back-end</li>
-                  <li>NodeJS Express, MySQL</li>
+                  <li>JavaScript, CSS, Bootstrap, NodeJS Express, MySQL</li>
                 </ul>
               </div>
             </div>
@@ -103,44 +103,42 @@ export default function Home() {
           {/* Skills Section */}
           <Card className="p-8 card-blur mb-8">
             <h2 className="text-3xl font-bold mb-4 text-purple-200">Skills</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {["Python", "JavaScript", "HTML", "CSS", "Dart", "Flutter", "MongoDB", "MySQL"].map((skill, index) => (
-                <div 
-                  key={skill} 
-                  className="skill-item animate-skills"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <SkillIcon name={skill} />
-                  {skill}
-                </div>
-              ))}
+            
+            {/* Frontend Skills */}
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold mb-3 text-purple-300">Frontend</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {["JavaScript", "TypeScript", "HTML", "CSS", "TailwindCSS", "Bootstrap", "Flutter", "Dart"].map((skill, index) => (
+                  <div 
+                    key={skill} 
+                    className="skill-item animate-skills"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <SkillIcon name={skill} />
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Backend Skills */}
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-purple-300">Backend</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {["Python", "JavaScript", "Node.js", "Express", "MongoDB", "MySQL"].map((skill, index) => (
+                  <div 
+                    key={skill} 
+                    className="skill-item animate-skills"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <SkillIcon name={skill} />
+                    {skill}
+                  </div>
+                ))}
+              </div>
             </div>
           </Card>
 
-          {/* Projects Section */}
-          <Card className="p-8 card-blur">
-            <h2 className="text-3xl font-bold mb-4 text-purple-200">Projects</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-purple-800/30 rounded-lg">
-                <h3 className="text-xl font-semibold text-purple-200 mb-2">MFU ChatAI System</h3>
-                <p className="text-purple-100">
-                  Developed a ChatAI system for Mae Fah Luang University using Claude 3.5 from AWS to provide question answering services and assist students.
-                </p>
-              </div>
-              <div className="p-4 bg-purple-800/30 rounded-lg">
-                <h3 className="text-xl font-semibold text-purple-200 mb-2">Flutter Mobile Application</h3>
-                <p className="text-purple-100">
-                  Built a mobile application with Flutter and Dart connected to MongoDB database to create a smooth user experience.
-                </p>
-              </div>
-              <div className="p-4 bg-purple-800/30 rounded-lg">
-                <h3 className="text-xl font-semibold text-purple-200 mb-2">Web Portfolio</h3>
-                <p className="text-purple-100">
-                  Designed and developed a personal portfolio website using Next.js, TypeScript, and Tailwind CSS with responsive and beautiful design.
-                </p>
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </main>
