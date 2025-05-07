@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2 } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
 import { useEffect, useState } from "react";
 
@@ -46,11 +46,13 @@ export default function Home() {
             
             {/* Profile Image */}
             <div className="mb-8 flex justify-center">
-              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-400 shadow-lg">
+              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-400 shadow-lg select-none">
                 <img 
                   src="/mee.jpg" 
                   alt="Apisit Yambangyang" 
-                  className="w-full h-full object-cover object-[center_top] scale-[4.2] -translate-y-1"
+                  className="w-full h-full object-cover object-[center_top] scale-[4.2] -translate-y-0.1 pointer-events-none"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
               </div>
             </div>
@@ -61,12 +63,8 @@ export default function Home() {
                 GitHub
               </Button>
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
                 <Mail className="mr-2 h-4 w-4" />
-                Contact
+                Mail : apisityambangyang@gmail.com
               </Button>
             </div>
           </div>
@@ -82,6 +80,26 @@ export default function Home() {
               I enjoy building real projects and recently created a ChatAI system for MFU using Claude 3.5 from AWS.
               I'm eager to keep learning, improve my skills, and grow as a full-stack developer.
             </p>
+          </Card>
+
+          {/* Education Section */}
+          <Card className="p-8 card-blur mb-8 animate-on-scroll">
+            <div className="flex items-center mb-4">
+              <GraduationCap className="w-6 h-6 text-purple-400 mr-3" />
+              <h2 className="text-3xl font-bold text-purple-200">Education</h2>
+            </div>
+            <div className="experience-timeline">
+              <div className="timeline-item">
+                <div className="timeline-dot">
+                  <CheckCircle className="w-6 h-6 text-yellow-500" />
+                </div>
+                <div className="flex flex-col md:flex-row md:items-center mb-2">
+                  <h3 className="text-2xl font-bold text-white mr-6">2022 - 2025</h3>
+                </div>
+                <h4 className="text-xl font-semibold text-purple-200 mb-3">Mae Fah Luang University</h4>
+                <p className="text-purple-100 mb-2">Bachelor of Engineering in Computer Engineering</p>
+              </div>
+            </div>
           </Card>
 
           {/* Experience Section */}
