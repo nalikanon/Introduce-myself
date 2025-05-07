@@ -57,12 +57,17 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex justify-center gap-4">
-              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800" onClick={() => window.open("https://github.com/nalikanon", "_blank")}>
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
+            <div className="flex flex-col justify-center items-center gap-3">
+            <a href="https://github.com/nalikanon"
+               target="_blank"
+               rel="" >
+            <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
+            <Github className="mr-2 h-4 w-4" />
+            GitHub
+            </Button>
+            </a>
+
+              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
                 <Mail className="mr-2 h-4 w-4" />
                 Mail : apisityambangyang@gmail.com
               </Button>
