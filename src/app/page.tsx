@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap, X, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap, X, Download, FileText } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
 import { useEffect, useState, useRef } from "react";
 
@@ -133,7 +133,7 @@ export default function Home() {
                 className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6"
                 onClick={() => setShowResume(!showResume)}
               >
-                <Briefcase className="mr-2 h-4 w-4" />
+                <FileText className="mr-2 h-4 w-4" />
                 Resume
               </Button>
             </div>
