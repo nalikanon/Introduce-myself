@@ -13,7 +13,7 @@ export default function Home() {
             <h1 className="text-5xl font-bold mb-4 gradient-text name-text">
               Apisit Yambangyang
             </h1>
-            <p className="text-2xl text-purple-200 mb-8">AI Developer & Software Engineer</p>
+            <p className="text-2xl text-purple-200 mb-8">Computer Engineer</p>
             <div className="flex justify-center gap-4">
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
                 <Github className="mr-2 h-4 w-4" />
