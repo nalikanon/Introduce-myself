@@ -72,11 +72,54 @@
 
 @layer utilities {
   .gradient-bg {
-    @apply bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900;
+    background: radial-gradient(circle at center, #7e22ce 0%, #3b0764 50%, #1e0533 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gradient-bg::before,
+  .gradient-bg::after {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background: rgba(126, 34, 206, 0.2);
+    animation: pulse-circle 10s infinite alternate ease-in-out;
+    z-index: 0;
+  }
+  
+  .gradient-bg::before {
+    top: -300px;
+    left: -200px;
+    animation-delay: 0s;
+  }
+  
+  .gradient-bg::after {
+    bottom: -300px;
+    right: -200px;
+    animation-delay: 5s;
+  }
+  
+  @keyframes pulse-circle {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(0.9);
+      opacity: 0.3;
+    }
   }
   
   .card-blur {
-    @apply bg-purple-900/50 backdrop-blur-sm border-purple-700;
+    @apply bg-black/40 backdrop-blur-md border-purple-900/50;
+    position: relative;
+    z-index: 1;
   }
   
   .animate-skills {
@@ -116,5 +159,21 @@
   .animate-on-scroll.show {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @keyframes profile-image-glow {
+    0% {
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.8), 0 0 30px rgba(192, 132, 252, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+    }
+  }
+
+  .profile-image {
+    animation: profile-image-glow 3s infinite ease-in-out;
   }
 } 

@@ -35,22 +35,38 @@ export default function Home() {
   
   return (
     <main className="min-h-screen gradient-bg text-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 relative z-[1]">
         <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-4 gradient-text name-text">
               Apisit Yambangyang
             </h1>
-            <p className="text-2xl text-purple-200 mb-8">Computer Engineering</p>
+            <p className="text-2xl text-purple-200 mb-4">Computer Engineering</p>
+            
+            {/* Profile Image */}
+            <div className="mb-8 flex justify-center">
+              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-400 shadow-lg">
+                <img 
+                  src="/mee.jpg" 
+                  alt="Apisit Yambangyang" 
+                  className="w-full h-full object-cover object-[center_top] scale-[4.2] -translate-y-1"
+                />
+              </div>
+            </div>
+            
             <div className="flex justify-center gap-4">
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800" onClick={() => window.open("https://github.com/nalikanon", "_blank")}>
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </Button>
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
+              </Button>
+              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
                 <Mail className="mr-2 h-4 w-4" />
-                Mail : apisityambangyang@gmail.com
+                Contact
               </Button>
             </div>
           </div>
@@ -88,7 +104,7 @@ export default function Home() {
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
                   <li>Developed a ChatAI web application for Mae Fah Luang University using Claude 3.5 Sonnet via AWS.</li>
                   <li>Front-end, Back-end</li>
-                  <li>JavaScript, TailwindCSS, Node.js, MongoDB</li>
+                  <li>JavaScript, TypeScript, TailwindCSS, NodeJS Express, MongoDB</li>
                 </ul>
               </div>
               
