@@ -66,11 +66,18 @@ export default function Home() {
             GitHub
             </Button>
             </a>
-
+            
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
                 <Mail className="mr-2 h-4 w-4" />
                 Mail : apisityambangyang@gmail.com
               </Button>
+
+              <a href="/Resume (1).pdf" download>
+                <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6">
+                  <Briefcase className="mr-2 h-4 w-4" />
+                  Resume
+                </Button>
+              </a>
             </div>
           </div>
 
