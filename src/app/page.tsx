@@ -49,12 +49,8 @@ export default function Home() {
                 GitHub
               </Button>
               <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-800">
                 <Mail className="mr-2 h-4 w-4" />
-                Contact
+                Mail : apisityambangyang@gmail.com
               </Button>
             </div>
           </div>
