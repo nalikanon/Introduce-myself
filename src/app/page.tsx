@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap, X, Download, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase, CheckCircle, User, Code2, GraduationCap, X, Download, FileText, ExternalLink } from "lucide-react";
 import { SkillIcon } from "@/components/SkillIcon";
 import { useEffect, useState, useRef } from "react";
 
@@ -296,9 +296,19 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white mr-6">2024</h3>
                   <p className="text-purple-200">June - Nov</p>
                 </div>
-                <h4 className="text-xl font-semibold text-purple-200 mb-3">Application Booking Library System</h4>
+                <h4 className="text-xl font-semibold text-purple-200 mb-3">
+                  <a 
+                    href="https://www.figma.com/design/aEab2RcYfYjacna1pjQaSg/Project-MAD-G16?node-id=0-1&t=ZsE5M03DzPGuiqxe-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-purple-400 transition-colors"
+                  >
+                    Application Booking Meeting Room System
+                    <ExternalLink className="inline-block ml-2 h-4 w-4 text-purple-400" />
+                  </a>
+                </h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
-                  <li>Application for Library room booking</li>
+                  <li>Application for meeting room booking</li>
                   <li>Front-end, Back-end</li>
                   <li>Dart, Flutter, JavaScript, Bootstrap, NodeJS Express, MySQL</li>
                 </ul>
@@ -313,9 +323,19 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white mr-6">2024</h3>
                   <p className="text-purple-200">Jan - May</p>
                 </div>
-                <h4 className="text-xl font-semibold text-purple-200 mb-3">Web Application Booking Hotel System</h4>
+                <h4 className="text-xl font-semibold text-purple-200 mb-3">
+                  <a 
+                    href="https://www.figma.com/design/u8OU07VXbTo8JRQvuZskNK/Project-WA-G4?node-id=1669-162202&t=fZcJztgh8r7ukMvm-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-purple-400 transition-colors"
+                  >
+                    Web Application Booking Library Room System
+                    <ExternalLink className="inline-block ml-2 h-4 w-4 text-purple-400" />
+                  </a>
+                </h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
-                  <li>Web application for hotel room booking</li>
+                  <li>Web application for library room booking</li>
                   <li>Front-end, Back-end</li>
                   <li>JavaScript, CSS, Bootstrap, NodeJS Express, MySQL</li>
                 </ul>
