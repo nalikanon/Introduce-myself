@@ -125,11 +125,56 @@
       transform: translateY(0) scale(1);
     }
   }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+  }
+  
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleDown {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  }
 
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out forwards;
   }
   
+  .animate-fadeOut {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+  
+  .animate-scaleUp {
+    animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  .animate-scaleDown {
+    animation: scaleDown 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+  }
+
   .card-blur {
     @apply bg-black/40 backdrop-blur-md border-purple-900/50;
     position: relative;
@@ -208,5 +253,49 @@
   
   .close-button-pulse {
     animation: pulse-close 2s infinite;
+  }
+
+  .popup-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+
+  @keyframes slideFromButton {
+    0% {
+      opacity: 0;
+      transform: translate(0, -30px) scale(0.3);
+      transform-origin: bottom center;
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(0, -100px) scale(0.6);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+      transform-origin: bottom center;
+    }
+  }
+  
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(147, 51, 234, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(147, 51, 234, 0.7), 0 0 40px rgba(147, 51, 234, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(147, 51, 234, 0.4);
+    }
+  }
+  
+  .resume-popup {
+    animation: slideFromButton 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform-origin: bottom center;
+  }
+  
+  .resume-popup-glow {
+    animation: pulseGlow 2s infinite ease-in-out;
   }
 } 

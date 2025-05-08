@@ -14,6 +14,8 @@ export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const resumeRef = useRef<HTMLDivElement>(null);
+  const resumeButtonRef = useRef<HTMLButtonElement>(null);
+  const [buttonPosition, setButtonPosition] = useState({ top: 0, left: 0 });
   
   const handleMouseDown = (e: React.MouseEvent) => {
     if (isZoomed) {
@@ -55,6 +57,16 @@ export default function Home() {
       setPosition({ x: 0, y: 0 });
     }
     setIsZoomed(!isZoomed);
+  };
+  
+  const handleResumeClick = () => {
+    if (resumeButtonRef.current) {
+      const rect = resumeButtonRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      setButtonPosition({ top: centerY, left: centerX });
+    }
+    setShowResume(!showResume);
   };
   
   useEffect(() => {
@@ -140,7 +152,8 @@ export default function Home() {
               <Button 
                 variant="outline" 
                 className="border-purple-400 text-purple-200 hover:bg-purple-800 min-w-32 px-6"
-                onClick={() => setShowResume(!showResume)}
+                onClick={handleResumeClick}
+                ref={resumeButtonRef}
               >
                 <FileText className="mr-2 h-4 w-4" />
                 Resume
@@ -150,8 +163,16 @@ export default function Home() {
 
           {/* Resume Popup */}
           {showResume && (
-            <div className="fixed top-1/2 right-10 transform -translate-y-1/2 z-50" ref={resumeRef}>
-              <div className="relative animate-fadeIn">
+            <div 
+              className="fixed top-1/2 right-10 transform -translate-y-1/2 z-50" 
+              ref={resumeRef}
+            >
+              <div 
+                className="relative resume-popup"
+                style={{
+                  transformOrigin: `${buttonPosition.left}px ${buttonPosition.top}px`
+                }}
+              >
                 <Button 
                   variant="ghost" 
                   size="icon" 
@@ -161,7 +182,7 @@ export default function Home() {
                   <X className="h-3 w-3 text-white" />
                 </Button>
                 
-                <div className="bg-white rounded-md shadow-lg overflow-hidden max-h-[85vh] w-[450px] border-2 border-purple-500 relative">
+                <div className="bg-white rounded-md shadow-lg overflow-hidden max-h-[85vh] w-[450px] border-2 border-purple-500 relative resume-popup-glow">
                   <div 
                     className={`overflow-hidden w-full h-full relative ${isZoomed ? 'cursor-grab' : 'cursor-zoom-in'} ${isDragging ? 'cursor-grabbing' : ''}`}
                     onMouseDown={handleMouseDown}
