@@ -17,6 +17,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^12.10.1",
+    "http": "^0.0.1-security",
     "intl": "^1.2.5",
     "lucide-react": "^0.294.0",
     "next": "^14.2.28",
