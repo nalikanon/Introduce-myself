@@ -385,6 +385,28 @@ export default function Home() {
             </div>
           </Card>
 
+          {/* Certificates Section */}
+          <Card className="p-8 card-blur mb-8 animate-on-scroll">
+            <div className="flex items-center mb-4">
+              <FileText className="w-6 h-6 text-purple-400 mr-3" />
+              <h2 className="text-3xl font-bold text-purple-200">Certificates</h2>
+            </div>
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold mb-3 text-purple-300">HCCDA-Tech Essentials</h3>
+              <div className="flex justify-center">
+                <div className="max-w-lg overflow-hidden rounded-lg shadow-lg border-2 border-purple-400">
+                  <img 
+                    src="/HWENDCTEDA752172.png" 
+                    alt="HCCDA-Tech Essentials Certificate" 
+                    className="w-full h-auto"
+                    onContextMenu={(e) => e.preventDefault()}
+                    draggable="false"
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
           {/* Projects Section - ถ้ามี */}
           <Card className="p-8 card-blur animate-on-scroll">
             {/* ... existing projects content ... */}
