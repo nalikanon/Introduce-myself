@@ -107,8 +107,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-4 gradient-text name-text">
-              Apisit Yambangyang
+            <h1 className="text-5xl font-bold inline-block">
+              <span className="gradient-text name-text inline-block px-4 py-2 rounded-md">
+                Apisit Yambangyang
+              </span>
             </h1>
             <p className="text-2xl text-purple-200 mb-4">Computer Engineering</p>
             

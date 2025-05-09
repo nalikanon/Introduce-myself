@@ -5,18 +5,40 @@
  
 @layer base {
   :root {
+    --background: 217 91% 60%;
+    --foreground: 0 0% 0%;
+  }
+
+  .dark {
     --background: 270 60% 5%;
     --foreground: 270 10% 98%;
   }
 
   body {
+    @apply transition-colors duration-300;
+  }
+
+  .dark body {
     @apply bg-purple-950 text-white;
+  }
+
+  .light body {
+    @apply bg-blue-400 text-black;
   }
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400;
+    @apply bg-clip-text text-transparent;
+  }
+
+  .dark .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-pink-400;
+  }
+
+  .light .gradient-text {
+    @apply bg-gradient-to-r from-blue-500 to-white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
   .poppins-font {
@@ -29,20 +51,42 @@
     line-height: 1.4;
     padding-bottom: 0.2em;
     margin-bottom: 0.4em;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
   }
   
   .skill-item {
-    @apply p-3 bg-purple-800/50 rounded-lg text-center text-purple-100;
-    transition: all 0.3s ease;
+    @apply p-3 rounded-lg text-center transition-all duration-300;
+  }
+
+  .dark .skill-item {
+    @apply bg-purple-800/50 text-purple-100;
+  }
+
+  .light .skill-item {
+    @apply bg-blue-600/70 text-white;
   }
   
-  .skill-item:hover {
+  .dark .skill-item:hover {
     @apply bg-purple-700 text-white transform scale-105;
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
   }
+
+  .light .skill-item:hover {
+    @apply bg-blue-700 text-white transform scale-105;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+  }
   
   .experience-timeline {
-    @apply relative pl-8 border-l-2 border-yellow-500;
+    @apply relative pl-8 border-l-2;
+  }
+
+  .dark .experience-timeline {
+    @apply border-yellow-500;
+  }
+
+  .light .experience-timeline {
+    @apply border-blue-800;
   }
   
   .timeline-dot {
@@ -67,13 +111,34 @@
   .timeline-item:nth-child(3) {
     animation-delay: 0.5s;
   }
+  
+  .name-frame {
+    @apply inline-block mx-auto border-2 px-8 py-4 mb-4 rounded-md shadow-md transition-all duration-300;
+  }
+  
+  .dark .name-frame {
+    @apply border-black bg-black/30 backdrop-blur-sm;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  }
+  
+  .light .name-frame {
+    @apply border-black bg-white/20 backdrop-blur-sm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 }
 
 @layer utilities {
   .gradient-bg {
-    background: radial-gradient(circle at center, #7e22ce 0%, #3b0764 50%, #1e0533 100%);
     position: relative;
     overflow: hidden;
+  }
+
+  .dark .gradient-bg {
+    background: radial-gradient(circle at center, #7e22ce 0%, #3b0764 50%, #1e0533 100%);
+  }
+
+  .light .gradient-bg {
+    background: radial-gradient(circle at center, #60a5fa 0%, #2563eb 50%, #1e40af 100%);
   }
   
   .gradient-bg::before,
@@ -83,9 +148,31 @@
     width: 1000px;
     height: 1000px;
     border-radius: 50%;
-    background: rgba(126, 34, 206, 0.2);
     animation: pulse-circle 10s infinite alternate ease-in-out;
     z-index: 0;
+  }
+
+  .dark .gradient-bg::before,
+  .dark .gradient-bg::after {
+    background: rgba(126, 34, 206, 0.2);
+  }
+
+  .light .gradient-bg::before,
+  .light .gradient-bg::after {
+    background: rgba(37, 99, 235, 0.2);
+  }
+  
+  /* Add additional circular backgrounds for light mode */
+  .light .gradient-bg::before {
+    box-shadow: 
+      200px 300px 0 200px rgba(96, 165, 250, 0.15),
+      -300px 200px 0 100px rgba(37, 99, 235, 0.1);
+  }
+  
+  .light .gradient-bg::after {
+    box-shadow: 
+      -150px -250px 0 150px rgba(59, 130, 246, 0.12),
+      350px -100px 0 120px rgba(147, 197, 253, 0.18);
   }
   
   .gradient-bg::before {
@@ -176,20 +263,39 @@
   }
 
   .card-blur {
-    @apply bg-black/40 backdrop-blur-md border-purple-900/50;
-    position: relative;
-    z-index: 1;
+    @apply backdrop-blur-md relative z-[1];
+  }
+
+  .dark .card-blur {
+    @apply bg-black/40 border-purple-900/50;
+  }
+
+  .light .card-blur {
+    @apply bg-white/40 border-blue-600/50;
   }
   
-  /* คลาสสำหรับการ์ดที่มีขอบแสงเหมือน resume */
+  /* Card with glowing border */
   .card-resume-glow {
-    @apply bg-black/40 backdrop-blur-md relative z-[1] rounded-md border-2 border-purple-500;
+    @apply backdrop-blur-md relative z-[1] rounded-md border-2 transition-all duration-300;
+  }
+
+  .dark .card-resume-glow {
+    @apply bg-black/40 border-purple-500;
     box-shadow: 0 0 20px rgba(147, 51, 234, 0.7), 0 0 35px rgba(147, 51, 234, 0.4);
-    transition: all 0.3s ease;
+  }
+
+  .light .card-resume-glow {
+    @apply bg-white/40 border-blue-600;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.7), 0 0 35px rgba(37, 99, 235, 0.4);
   }
   
-  .card-resume-glow:hover {
+  .dark .card-resume-glow:hover {
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .light .card-resume-glow:hover {
+    box-shadow: 0 0 25px rgba(60, 130, 246, 0.8), 0 0 40px rgba(60, 130, 246, 0.5);
     transform: translateY(-2px);
   }
   
@@ -314,5 +420,81 @@
   
   .resume-popup-glow:hover {
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.5);
+  }
+
+  /* Additional light theme background styling */
+  .light-theme-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .light-theme-bg::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.2);
+    filter: blur(40px);
+    left: -100px;
+    top: 20%;
+    z-index: -1;
+  }
+  
+  .light-theme-bg::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, 0.15);
+    filter: blur(60px);
+    right: -150px;
+    bottom: 10%;
+    z-index: -1;
+  }
+  
+  .floating-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: -1;
+    filter: blur(25px);
+  }
+  
+  .floating-circle-1 {
+    width: 200px;
+    height: 200px;
+    background: #60a5fa;
+    animation: float1 20s infinite alternate ease-in-out;
+  }
+  
+  .floating-circle-2 {
+    width: 300px;
+    height: 300px;
+    background: #3b82f6;
+    animation: float2 25s infinite alternate-reverse ease-in-out;
+  }
+  
+  .floating-circle-3 {
+    width: 150px;
+    height: 150px;
+    background: #93c5fd;
+    animation: float3 15s infinite alternate ease-in-out;
+  }
+  
+  @keyframes float1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50px, 50px); }
+  }
+  
+  @keyframes float2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(70px, -70px); }
+  }
+  
+  @keyframes float3 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 40px); }
   }
 } 
