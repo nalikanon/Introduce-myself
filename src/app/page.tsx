@@ -234,12 +234,10 @@ export default function Home() {
           <Card className="p-8 card-blur mb-8 animate-on-scroll">
             <div className="flex items-center mb-4">
               <User className="w-6 h-6 text-purple-400 mr-3" />
-              <h2 className="text-3xl font-bold text-purple-200">About Me</h2>
+              <h2 className="text-3xl font-bold text-purple-200">Summary</h2>
             </div>
             <p className="text-purple-100 leading-relaxed">
-              I'm a Computer Engineering student at Mae Fah Luang University with a strong interest in web development and AI. 
-              I enjoy building real projects and recently created a ChatAI system for MFU using Claude 3.5 from AWS.
-              I'm eager to keep learning, improve my skills, and grow as a full-stack developer.
+              Computer Engineering student at Mae Fah Luang University with experience in full-stack web development and AI-powered web systems. Built several web-based platforms, including an AI chatbot (Claude 4.5 on AWS), maintenance system, CCTV interface, and booking system for university use. Proficient in Vue, TypeScript, and JavaScript, with database experience in MongoDB and MySQL. Strong focus on API integration, system design, and scalable web development.
             </p>
           </Card>
 
