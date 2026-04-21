@@ -274,14 +274,16 @@ export default function Home() {
                   <CheckCircle className="w-6 h-6 text-yellow-500" />
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center mb-2">
-                  <h3 className="text-2xl font-bold text-white mr-6">2025</h3>
-                  <p className="text-purple-200">Jan - Present</p>
+                  <h3 className="text-2xl font-bold text-white mr-6">2025 - 2026</h3>
+                  <p className="text-purple-200">Jan - April</p>
                 </div>
-                <h4 className="text-xl font-semibold text-purple-200 mb-3">Web Application ChatAI For Mae Fah Luang University</h4>
+                <h4 className="text-xl font-semibold text-purple-200 mb-3">ChatAI For Mae Fah Luang University (DinDinAi)</h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
-                  <li>Developed a ChatAI web application for Mae Fah Luang University using Claude 3.5 Sonnet via AWS.</li>
-                  <li>Front-end, Back-end</li>
-                  <li>JavaScript, TypeScript, TailwindCSS, NodeJS Express, MongoDB</li>
+                  <li>Built a full-stack AI Chatbot platform for the university using AWS Bedrock (Claude 4.5 Sonnet) with real-time streaming</li>
+                  <li>Designed a RAG pipeline enabling the AI to autonomously search and retrieve answers from a Knowledge Base</li>
+                  <li>Developed a Thai-language OCR system for document ingestion (PDF, DOCX, Excel) with async processing</li>
+                  <li>Implemented MFU SSO authentication with JWT and Role-Based Access Control (user / admin / superadmin)</li>
+                  <li>Tech: TypeScript, Vue 3, JavaScript, Python</li>
                 </ul>
               </div>
               
@@ -291,24 +293,23 @@ export default function Home() {
                   <CheckCircle className="w-6 h-6 text-yellow-500" />
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center mb-2">
-                  <h3 className="text-2xl font-bold text-white mr-6">2024</h3>
-                  <p className="text-purple-200">June - Nov</p>
+                  <h3 className="text-2xl font-bold text-white mr-6">2026</h3>
+                  <p className="text-purple-200">Feb - April</p>
                 </div>
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">
                   <a 
-                    href="https://www.figma.com/design/aEab2RcYfYjacna1pjQaSg/Project-MAD-G16?node-id=0-1&t=ZsE5M03DzPGuiqxe-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-purple-400 transition-colors"
+                    
+                   
+                    
                   >
-                    Application Booking Meeting Room System
-                    <ExternalLink className="inline-block ml-2 h-4 w-4 text-purple-400" />
+                    CCTVmap Around Mae Fah Luang University
+                    
                   </a>
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
-                  <li>Application for meeting room booking</li>
-                  <li>Front-end, Back-end</li>
-                  <li>Dart, Flutter, JavaScript, Bootstrap, NodeJS Express, MySQL</li>
+                  <li>Developed a real-time web app to monitor CCTV status  across Mae Fah Luang University campus</li>
+                  <li>Built interactive map with Leaflet.js showing live camera online/offline status</li>
+                  <li>Tech: Vue 3, FastAPI (Python), SQLite, Leaflet.js</li>
                 </ul>
               </div>
               
@@ -318,24 +319,22 @@ export default function Home() {
                   <CheckCircle className="w-6 h-6 text-yellow-500" />
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center mb-2">
-                  <h3 className="text-2xl font-bold text-white mr-6">2024</h3>
-                  <p className="text-purple-200">Jan - May</p>
+                  <h3 className="text-2xl font-bold text-white mr-6">2026</h3>
+                  <p className="text-purple-200">Feb - April</p>
                 </div>
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">
                   <a 
-                    href="https://www.figma.com/design/u8OU07VXbTo8JRQvuZskNK/Project-WA-G4?node-id=1669-162202&t=fZcJztgh8r7ukMvm-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-purple-400 transition-colors"
+                    
                   >
-                    Web Application Booking Library Room System
-                    <ExternalLink className="inline-block ml-2 h-4 w-4 text-purple-400" />
+                    Maintenance System For Mae Fah Luang University
+                    
                   </a>
                 </h4>
                 <ul className="list-disc pl-5 space-y-2 text-purple-100">
-                  <li>Web application for library room booking</li>
-                  <li>Front-end, Back-end</li>
-                  <li>JavaScript, CSS, Bootstrap, NodeJS Express, MySQL</li>
+                  <li>Built a full-stack university maintenance ticketing system supporting multi-role workflows</li>
+                  <li>Implemented real-time ticket status notifications via Socket.IO and Google OAuth 2.0 with JWT authentication
+   Containerized with Docker & Nginx for production deployment</li>
+                  <li>Tech: Vue.js, Node.js, Express.js, MongoDB, Socket.IO, Docker</li>
                 </ul>
               </div>
             </div>
@@ -352,7 +351,7 @@ export default function Home() {
             <div className="mb-6">
               <h3 className="text-xl font-semibold mb-3 text-purple-300">Frontend</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["JavaScript", "TypeScript", "HTML", "CSS", "TailwindCSS", "Bootstrap", "Flutter", "Dart"].map((skill, index) => (
+                {["JavaScript", "TypeScript","Vue", "HTML","React", "CSS", "TailwindCSS", "Bootstrap", "Flutter", "Dart"].map((skill, index) => (
                   <div 
                     key={skill} 
                     className="skill-item animate-skills"
@@ -369,7 +368,7 @@ export default function Home() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-purple-300">Backend</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["Python", "JavaScript", "Node.js", "Express", "MongoDB", "MySQL"].map((skill, index) => (
+                {["Python", "JavaScript", "Node.js","Docker","FastAPI", "Express", "MongoDB", "MySQL"].map((skill, index) => (
                   <div 
                     key={skill} 
                     className="skill-item animate-skills"
