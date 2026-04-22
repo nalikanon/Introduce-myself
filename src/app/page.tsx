@@ -278,39 +278,49 @@ export default function Home() {
                   <p className="text-purple-200">Jan - April</p>
                 </div>
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">ChatAI For Mae Fah Luang University (DinDinAi)</h4>
-                <ul className="list-disc pl-5 space-y-2 text-purple-100">
+                <ul className="list-disc pl-5 space-y-2 text-purple-100 mb-6">
                   <li>Built a full-stack AI Chatbot platform for the university using AWS Bedrock (Claude 4.5 Sonnet) with real-time streaming</li>
                   <li>Designed a RAG pipeline enabling the AI to autonomously search and retrieve answers from a Knowledge Base</li>
                   <li>Developed a Thai-language OCR system for document ingestion (PDF, DOCX, Excel) with async processing</li>
                   <li>Implemented MFU SSO authentication with JWT and Role-Based Access Control (user / admin / superadmin)</li>
                   <li>Tech: TypeScript, Vue 3, JavaScript, Python</li>
                 </ul>
+                <div className="mt-4 overflow-hidden rounded-xl border border-purple-500/30 shadow-lg hover:border-purple-400 group transition-all duration-300">
+                  <img 
+                    src="/DindinAi_mfu.jpg" 
+                    alt="DinDinAi Project" 
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
               
               {/* 2024 Experience 1 */}
               <div className="timeline-item">
                 <div className="timeline-dot">
-                  <CheckCircle className="w-6 h-6 text-yellow-500" />
+                  <span className="relative flex h-6 w-6">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <CheckCircle className="relative inline-flex w-6 h-6 text-yellow-500 bg-purple-950 rounded-full" />
+                  </span>
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center mb-2">
                   <h3 className="text-2xl font-bold text-white mr-6">2026</h3>
                   <p className="text-purple-200">Feb - April</p>
                 </div>
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">
-                  <a 
-                    
-                   
-                    
-                  >
-                    CCTVmap Around Mae Fah Luang University
-                    
-                  </a>
+                  CCTVmap Around Mae Fah Luang University
                 </h4>
-                <ul className="list-disc pl-5 space-y-2 text-purple-100">
+                <ul className="list-disc pl-5 space-y-2 text-purple-100 mb-6">
                   <li>Developed a real-time web app to monitor CCTV status  across Mae Fah Luang University campus</li>
                   <li>Built interactive map with Leaflet.js showing live camera online/offline status</li>
                   <li>Tech: Vue 3, FastAPI (Python), SQLite, Leaflet.js</li>
                 </ul>
+                <div className="mt-4 overflow-hidden rounded-xl border border-purple-500/30 shadow-lg hover:border-purple-400 group transition-all duration-300">
+                  <img 
+                    src="/CCTVmap_mfu.jpg" 
+                    alt="CCTVmap Project" 
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
               
               {/* 2024 Experience 2 */}
@@ -323,19 +333,21 @@ export default function Home() {
                   <p className="text-purple-200">Feb - April</p>
                 </div>
                 <h4 className="text-xl font-semibold text-purple-200 mb-3">
-                  <a 
-                    
-                  >
-                    Maintenance System For Mae Fah Luang University
-                    
-                  </a>
+                  Maintenance System For Mae Fah Luang University
                 </h4>
-                <ul className="list-disc pl-5 space-y-2 text-purple-100">
+                <ul className="list-disc pl-5 space-y-2 text-purple-100 mb-6">
                   <li>Built a full-stack university maintenance ticketing system supporting multi-role workflows</li>
-                  <li>Implemented real-time ticket status notifications via Socket.IO and Google OAuth 2.0 with JWT authentication
-   Containerized with Docker & Nginx for production deployment</li>
+                  <li>Implemented real-time ticket status notifications via Socket.IO and Google OAuth 2.0 with JWT authentication</li>
+                  <li>Containerized with Docker & Nginx for production deployment</li>
                   <li>Tech: Vue.js, Node.js, Express.js, MongoDB, Socket.IO, Docker</li>
                 </ul>
+                <div className="mt-4 overflow-hidden rounded-xl border border-purple-500/30 shadow-lg hover:border-purple-400 group transition-all duration-300">
+                  <img 
+                    src="/Maintenance_mfu.jpg" 
+                    alt="Maintenance System Project" 
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </div>
             </div>
           </Card>
