@@ -191,7 +191,7 @@ export default function Home() {
                     onMouseLeave={handleMouseUp}
                   >
                     <img 
-                      src="/resume.png" 
+                      src="/Resume.png" 
                       alt="Resume"
                       className="w-full h-auto select-none"
                       style={isZoomed ? { 
@@ -221,7 +221,7 @@ export default function Home() {
                 </div>
                 
                 <div className="bg-purple-900/90 p-2 mt-2 rounded-md shadow-lg flex justify-center">
-                  <a href="/resume.png" download="Resume_ApisitYambangyang.png" className="text-center text-purple-300 text-xs hover:text-white">
+                  <a href="/Resume.png" download="Resume.png" className="text-center text-purple-300 text-xs hover:text-white">
                     <Download className="h-3 w-3 mx-auto mb-1" />
                     Download Resume
                   </a>
